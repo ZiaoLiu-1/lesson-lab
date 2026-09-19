@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.local/
+node_modules/
+.DS_Store
+*.log
+*.har
+*.pem
+*.key
+coverage/

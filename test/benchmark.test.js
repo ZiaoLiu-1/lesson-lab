@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { checkSource } from '../benchmark/validator.js';
+import { starterHtml,promptFor,hash } from '../benchmark/tasks.js';
+import { summarize,toCSV } from '../benchmark/results.js';
+test('benchmark starts from identical source; distinct task prompts are stable',()=>{assert.equal(checkSource(starterHtml).pass,true);assert.equal(hash(promptFor('T1')),hash(promptFor('T1')));assert.notEqual(hash(promptFor('T1')),hash(promptFor('T2')));});
+test('source rejects active content and external resource escapes',()=>{for(const payload of ['<script>alert(1)</script>','<p onclick="x()">bad</p>','<svg><a href="https://example.com">bad</a></svg>','<style>p{display:none}</style>','<path fill="url(https://example.com)" />','<img src="x">','<p id="curve">duplicate</p>'])assert.equal(checkSource(starterHtml.replace('</div>',payload+'</div>')).pass,false,payload);});
+test('rehearsals, failures and unreviewed samples cannot become success latency',()=>{const base={taskId:'T1',lane:'cerebras',phase:'measured',status:'rendered',review:'pass',promptHash:'same'};const runs=[{...base,browser:{renderedMs:100}},{...base,browser:{renderedMs:300}},{...base,phase:'rehearsal',browser:{renderedMs:1}},{...base,review:'pending',browser:{renderedMs:20}},{...base,status:'failed',review:'pending',browser:{renderedMs:null}}];const g=summarize(runs).groups[0];assert.deepEqual([g.attempts,g.reviewedPasses,g.failed,g.pending,g.medianMs],[4,2,1,1,200]);});
+test('CSV preserves absent times rather than inventing zero',()=>{const csv=toCSV([{runId:'run',status:'failed',error:{code:'TIMEOUT'}}]);assert.match(csv,/TIMEOUT/);assert.doesNotMatch(csv,/'?undefined/);});
+test('mixed prompts or provider configurations cannot produce one median',()=>{const base={taskId:'T1',lane:'cerebras',phase:'measured',status:'rendered',review:'pass'};const group=summarize([{...base,promptHash:'a',browser:{renderedMs:100}},{...base,promptHash:'b',browser:{renderedMs:900}}]).groups[0];assert.equal(group.mixedCohort,true);assert.equal(group.medianMs,null);assert.equal(group.attempts,2);});

@@ -1,0 +1,396 @@
+{
+  "selection": "phase=rehearsal AND task=T1; new IDs since --after when supplied; failures retained",
+  "runs": [
+    {
+      "runId": "bf95623e-ab2b-4c63-84fe-573f5c73a103",
+      "pairId": "87c9c38e-4a40-4b97-a1d2-360e5e326bf8",
+      "protocolVersion": "lesson-code-edit-effort-low-v1",
+      "lane": "astra",
+      "taskId": "T1",
+      "phase": "rehearsal",
+      "startedAt": "2026-09-18T22:12:56.100Z",
+      "status": "rendered",
+      "review": "pass",
+      "sourceHash": "50f56011f364744ca38f2fc8947c977bcc1d76d43351dbbe9f43ec6d6cdfae3d",
+      "promptHash": "671557108c1467af8f817c3ef4248fc1cb57d2c6cf83b9f0ec301d3276f7e14b",
+      "schemaHash": "ec3f016890518cfdbf8459927d34ed56f47d0642d762c0dc8d13dd3e3463f651",
+      "stylesHash": "cd2a1426b146feb443e77846c15c9970842c497efb025fbaae5207541d1028f8",
+      "events": [
+        {
+          "name": "started",
+          "elapsedMs": 1.09,
+          "lane": "astra",
+          "effectiveConfig": {
+            "model": "gpt-6-astra",
+            "reasoningEffort": "low",
+            "maxCompletionTokens": null,
+            "temperature": null,
+            "transport": "Codex CLI with existing ChatGPT login",
+            "sandbox": "read-only",
+            "ephemeral": true,
+            "ignoreUserConfig": true,
+            "toolPolicy": "disabled; any observed tool execution fails the run",
+            "timingScope": "includes local setup and CLI startup; not an API-only comparison",
+            "timeoutMs": 90000
+          }
+        },
+        {
+          "name": "first_output",
+          "elapsedMs": 29380.03,
+          "kind": "completed_message"
+        },
+        {
+          "name": "complete",
+          "elapsedMs": 29719.65,
+          "metadata": {
+            "lane": "astra",
+            "model": "gpt-6-astra",
+            "modelReported": null,
+            "modelSource": "requested configuration",
+            "providerId": "01a0b694-76b8-7db1-b97f-868bb38185d6",
+            "providerIdKind": "codex_thread",
+            "usage": {
+              "input_tokens": 8345,
+              "cached_input_tokens": 0,
+              "output_tokens": 589,
+              "reasoning_output_tokens": 0
+            },
+            "effectiveConfig": {
+              "model": "gpt-6-astra",
+              "reasoningEffort": "low",
+              "maxCompletionTokens": null,
+              "temperature": null,
+              "transport": "Codex CLI with existing ChatGPT login",
+              "sandbox": "read-only",
+              "ephemeral": true,
+              "ignoreUserConfig": true,
+              "toolPolicy": "disabled; any observed tool execution fails the run",
+              "timingScope": "includes local setup and CLI startup; not an API-only comparison",
+              "timeoutMs": 90000
+            },
+            "startedAt": "2026-09-18T22:12:56.117Z",
+            "elapsedMs": 29718.29,
+            "firstOutputMs": 29379.96,
+            "firstOutputKind": "completed_message"
+          }
+        }
+      ],
+      "browser": {
+        "renderedMs": 29825.69999998808,
+        "uiResponseMs": 9.300000011920929,
+        "codeReceivedMs": 29777.30000001192
+      },
+      "serverMs": 29742.002000000328,
+      "metadata": {
+        "lane": "astra",
+        "model": "gpt-6-astra",
+        "modelReported": null,
+        "modelSource": "requested configuration",
+        "providerId": "01a0b694-76b8-7db1-b97f-868bb38185d6",
+        "providerIdKind": "codex_thread",
+        "usage": {
+          "input_tokens": 8345,
+          "cached_input_tokens": 0,
+          "output_tokens": 589,
+          "reasoning_output_tokens": 0
+        },
+        "effectiveConfig": {
+          "model": "gpt-6-astra",
+          "reasoningEffort": "low",
+          "maxCompletionTokens": null,
+          "temperature": null,
+          "transport": "Codex CLI with existing ChatGPT login",
+          "sandbox": "read-only",
+          "ephemeral": true,
+          "ignoreUserConfig": true,
+          "toolPolicy": "disabled; any observed tool execution fails the run",
+          "timingScope": "includes local setup and CLI startup; not an API-only comparison",
+          "timeoutMs": 90000
+        },
+        "startedAt": "2026-09-18T22:12:56.117Z",
+        "elapsedMs": 29718.29,
+        "firstOutputMs": 29379.96,
+        "firstOutputKind": "completed_message"
+      },
+      "html": "<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <line id=\"tangent\" x1=\"40\" y1=\"240\" x2=\"320\" y2=\"80\" stroke=\"#2563eb\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p id=\"tangent-note\">Tangent slope: 2. This is the local slope of the curve at x = 1.</p>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>",
+      "summary": "Added a blue tangent and a short explanation of the local slope at x = 1.",
+      "checks": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Bounded HTML source",
+            "pass": true
+          },
+          {
+            "name": "Passive allowlisted HTML/SVG only",
+            "pass": true
+          },
+          {
+            "name": "Single preserved root",
+            "pass": true
+          }
+        ]
+      },
+      "outputHash": "5176babd3a155c6d53fac9f77fb650cadb6420e4648ff393741a9c748e809843",
+      "domChecks": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Recording tab stayed visible",
+            "pass": true
+          },
+          {
+            "name": "Entire lesson frame is in the recording viewport",
+            "pass": true
+          },
+          {
+            "name": "Lesson root was rendered",
+            "pass": true
+          },
+          {
+            "name": "One lesson root",
+            "pass": true
+          },
+          {
+            "name": "Original graph viewBox",
+            "pass": true
+          },
+          {
+            "name": "Original parabola preserved",
+            "pass": true
+          },
+          {
+            "name": "Original point preserved",
+            "pass": true
+          },
+          {
+            "name": "Graph elements have SVG semantics",
+            "pass": true
+          },
+          {
+            "name": "Original lesson text preserved",
+            "pass": true
+          },
+          {
+            "name": "Tangent geometry",
+            "pass": true
+          },
+          {
+            "name": "Tangent is a line in the graph",
+            "pass": true
+          },
+          {
+            "name": "Tangent label",
+            "pass": true
+          },
+          {
+            "name": "Known task",
+            "pass": true
+          },
+          {
+            "name": "Changed element is visible: #tangent",
+            "pass": true
+          },
+          {
+            "name": "Changed element is visible: #tangent-note",
+            "pass": true
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-18T22:14:18.033Z"
+    },
+    {
+      "runId": "71bee08a-8b3d-4210-90a4-df85d2668e09",
+      "pairId": "87c9c38e-4a40-4b97-a1d2-360e5e326bf8",
+      "protocolVersion": "lesson-code-edit-effort-low-v1",
+      "lane": "cerebras-qwen",
+      "taskId": "T1",
+      "phase": "rehearsal",
+      "startedAt": "2026-09-18T22:13:25.948Z",
+      "status": "rendered",
+      "review": "pass",
+      "sourceHash": "50f56011f364744ca38f2fc8947c977bcc1d76d43351dbbe9f43ec6d6cdfae3d",
+      "promptHash": "671557108c1467af8f817c3ef4248fc1cb57d2c6cf83b9f0ec301d3276f7e14b",
+      "schemaHash": "ec3f016890518cfdbf8459927d34ed56f47d0642d762c0dc8d13dd3e3463f651",
+      "stylesHash": "cd2a1426b146feb443e77846c15c9970842c497efb025fbaae5207541d1028f8",
+      "events": [
+        {
+          "name": "started",
+          "elapsedMs": 0.69,
+          "lane": "cerebras-qwen",
+          "effectiveConfig": {
+            "model": "qwen-3.8-27b",
+            "reasoningEffort": "low",
+            "maxCompletionTokens": 8192,
+            "temperature": 0,
+            "reasoningFormat": "parsed",
+            "transport": "Cerebras Chat Completions",
+            "streaming": false,
+            "timeoutMs": 90000
+          }
+        },
+        {
+          "name": "response_headers",
+          "elapsedMs": 748.25,
+          "httpStatus": 200
+        },
+        {
+          "name": "complete",
+          "elapsedMs": 831.94,
+          "metadata": {
+            "lane": "cerebras-qwen",
+            "model": "qwen-3.8-27b",
+            "modelReported": "qwen-3.8-27b",
+            "modelSource": "provider response",
+            "providerId": "chatcmpl-dfea698a-a7c8-4ad8-86ae-43d1ba14e748",
+            "providerIdKind": "chat_completion",
+            "usage": {
+              "prompt_tokens": 1326,
+              "completion_tokens": 891,
+              "total_tokens": 2217,
+              "completion_tokens_details": {
+                "reasoning_tokens": 203
+              }
+            },
+            "effectiveConfig": {
+              "model": "qwen-3.8-27b",
+              "reasoningEffort": "low",
+              "maxCompletionTokens": 8192,
+              "temperature": 0,
+              "reasoningFormat": "parsed",
+              "transport": "Cerebras Chat Completions",
+              "streaming": false,
+              "timeoutMs": 90000
+            },
+            "startedAt": "2026-09-18T22:13:25.953Z",
+            "elapsedMs": 831.87,
+            "firstOutputMs": null,
+            "firstOutputKind": null
+          }
+        }
+      ],
+      "browser": {
+        "renderedMs": 956.1000000238419,
+        "uiResponseMs": 9.100000023841858,
+        "codeReceivedMs": 921.6000000238419
+      },
+      "serverMs": 836.9372089998797,
+      "metadata": {
+        "lane": "cerebras-qwen",
+        "model": "qwen-3.8-27b",
+        "modelReported": "qwen-3.8-27b",
+        "modelSource": "provider response",
+        "providerId": "chatcmpl-dfea698a-a7c8-4ad8-86ae-43d1ba14e748",
+        "providerIdKind": "chat_completion",
+        "usage": {
+          "prompt_tokens": 1326,
+          "completion_tokens": 891,
+          "total_tokens": 2217,
+          "completion_tokens_details": {
+            "reasoning_tokens": 203
+          }
+        },
+        "effectiveConfig": {
+          "model": "qwen-3.8-27b",
+          "reasoningEffort": "low",
+          "maxCompletionTokens": 8192,
+          "temperature": 0,
+          "reasoningFormat": "parsed",
+          "transport": "Cerebras Chat Completions",
+          "streaming": false,
+          "timeoutMs": 90000
+        },
+        "startedAt": "2026-09-18T22:13:25.953Z",
+        "elapsedMs": 831.87,
+        "firstOutputMs": null,
+        "firstOutputKind": null
+      },
+      "html": "<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n    <line id=\"tangent\" x1=\"40\" y1=\"240\" x2=\"320\" y2=\"80\" stroke=\"#2563eb\" stroke-width=\"3\" />\n  </svg>\n  <p id=\"tangent-note\"><strong>Tangent slope: 2</strong> — this is the local slope at x = 1, meaning the curve is rising at a rate of 2 units per unit of x at that exact point.</p>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>",
+      "summary": "Added a blue tangent line at x=1 to the graph and a paragraph explaining the local slope of 2.",
+      "checks": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Bounded HTML source",
+            "pass": true
+          },
+          {
+            "name": "Passive allowlisted HTML/SVG only",
+            "pass": true
+          },
+          {
+            "name": "Single preserved root",
+            "pass": true
+          }
+        ]
+      },
+      "outputHash": "ede0ed6424d0f88b700c90ecc09f428be8bda8193a4e0daaf9dbd9243a85e8b2",
+      "domChecks": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Recording tab stayed visible",
+            "pass": true
+          },
+          {
+            "name": "Entire lesson frame is in the recording viewport",
+            "pass": true
+          },
+          {
+            "name": "Lesson root was rendered",
+            "pass": true
+          },
+          {
+            "name": "One lesson root",
+            "pass": true
+          },
+          {
+            "name": "Original graph viewBox",
+            "pass": true
+          },
+          {
+            "name": "Original parabola preserved",
+            "pass": true
+          },
+          {
+            "name": "Original point preserved",
+            "pass": true
+          },
+          {
+            "name": "Graph elements have SVG semantics",
+            "pass": true
+          },
+          {
+            "name": "Original lesson text preserved",
+            "pass": true
+          },
+          {
+            "name": "Tangent geometry",
+            "pass": true
+          },
+          {
+            "name": "Tangent is a line in the graph",
+            "pass": true
+          },
+          {
+            "name": "Tangent label",
+            "pass": true
+          },
+          {
+            "name": "Known task",
+            "pass": true
+          },
+          {
+            "name": "Changed element is visible: #tangent",
+            "pass": true
+          },
+          {
+            "name": "Changed element is visible: #tangent-note",
+            "pass": true
+          }
+        ]
+      },
+      "reviewedAt": "2026-09-18T22:14:17.003Z"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f2eb">
+  <title>Live lesson, two engines</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#comparison">Skip to lesson previews</a>
+  <div class="workspace">
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="Lesson Lab home"><span class="brand-mark">ƒ</span><span>LESSON LAB<small>A live code-edit comparison</small></span></a>
+      <span class="connection" id="connection" role="status"><i aria-hidden="true"></i><span id="connection-text">Connecting to the local runner</span></span>
+    </header>
+    <section class="intro">
+      <div><p class="eyebrow">SAME LESSON. SAME REQUEST.</p><h1>Live lesson, <em>two engines.</em></h1></div>
+      <p class="intro-note">A real source rewrite, from request to rendered lesson.<br>Review the result before comparing the clock.</p>
+    </section>
+    <p class="model-switch"><a href="/">GPT-OSS 120B on Cerebras</a> · <a href="/?cerebras=qwen">Qwen 3.8 27B on Cerebras</a> <span>— both compared with GPT-6 Astra</span></p>
+    <div class="notice" id="error-banner" role="alert" hidden></div>
+    <section class="control-bar" aria-label="Comparison controls">
+      <div class="task-picker"><label for="task-select">EDIT THE LESSON</label><select id="task-select" disabled><option>Loading tasks…</option></select></div>
+      <div class="phase-picker"><label for="phase-select">RUN TYPE</label><select id="phase-select"><option value="rehearsal">Rehearsal</option><option value="measured">Measured</option></select></div>
+      <div class="repeat-picker"><label for="repeat-select">REPEATS</label><select id="repeat-select"><option value="1">1</option><option value="3">3</option><option value="5">5</option></select></div>
+      <button class="primary-button" id="run-both" type="button" disabled>Run both <span aria-hidden="true">↗</span></button>
+      <button class="stop-button" id="stop-run" type="button" disabled>Stop</button>
+      <button class="stop-button" id="recording-layout" type="button" aria-pressed="false">Recording layout</button>
+    </section>
+    <div class="run-description"><p id="sequence-description">Each pair runs sequentially. Engine order alternates between pairs.</p><span id="batch-status" role="status" aria-live="polite">Ready when you are.</span></div>
+    <details class="prompt-details"><summary>Read the exact shared prompt <span id="task-short-label"></span></summary><pre id="shared-prompt">Loading the shared request…</pre></details>
+    <main id="comparison" class="comparison" tabindex="-1" aria-label="Equal lesson previews"></main>
+    <p class="measurement-note"><strong>Read the clocks:</strong> each lane starts at its own request dispatch. “Code ready” is the complete returned source; “Visible” requires a rendered, visible frame and passing DOM checks. Rehearsals stay separate. No timing alone is a quality verdict.</p>
+    <section class="history" aria-labelledby="history-title">
+      <div class="history-heading"><div><p class="eyebrow">THE ACTUAL RECORD</p><h2 id="history-title">Every run stays in view.</h2></div><div class="exports"><button id="refresh-results" type="button" class="text-button">Refresh</button><a href="/api/export.csv" download>Export CSV ↗</a><a href="/api/export.json" download>Export JSON ↗</a></div></div>
+      <p class="history-note" id="history-note">Loading saved runs…</p>
+      <div class="table-scroll"><table><caption class="sr-only">Saved runs with individual timings and visual/content review status</caption><thead><tr><th>Run</th><th>Engine / task</th><th>Type</th><th>Code ready</th><th>Visible</th><th>Review</th><th><span class="sr-only">Inspect run</span></th></tr></thead><tbody id="history-body"></tbody></table></div>
+    </section>
+    <footer><span>Fast is useful when the lesson is right.</span><p>Cerebras API vs. GPT-6 Astra through a Codex workflow. Routes, models and orchestration differ. This is an end-to-end application comparison, not an isolated hardware benchmark.</p></footer>
+  </div>
+</body>
+</html>

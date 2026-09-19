@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "exportDate": "2026-09-19",
+  "scope": "69 historical measured bounded-edit requests, 4 initial/filmed CLI rehearsals and 4 direct-API rehearsals. Canvas development calls and connectivity tests are outside this comparison index.",
+  "counts": {
+    "allIndexed": 77,
+    "historicalMeasured": 69,
+    "historicalRehearsals": 4,
+    "directApiRehearsals": 4,
+    "historicalMeasuredReviewPass": 69,
+    "recordedFailuresInIndexedScope": 0,
+    "pendingReview": 4
+  },
+  "newModelCalls": 0,
+  "absolutePrivatePathRedactions": 0,
+  "secretValuesFound": 0,
+  "note": "Exact source JSONs were screened before copying. No secret or private absolute path was present, so their bytes remain unchanged. Retained hashes identify source files; they are not credentials. Source labels are project-relative provenance, not public URLs.",
+  "files": [
+    {
+      "file": "docs/results/baseline47.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/baseline47.json",
+      "sha256": "4aa98b7c46958d9fdbde0f0cff70cd3c72a2f8a698e8f7219463b2acd3d73e0e",
+      "bytes": 370767,
+      "byteIdentical": true,
+      "records": 47,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/high6.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/high6.json",
+      "sha256": "aef0a2af5d3f2bdf14127f43b9dade68d11fc9e20d34bee3c258f673e0e82f59",
+      "bytes": 51867,
+      "byteIdentical": true,
+      "records": 6,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/effort-low6.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/effort-low6.json",
+      "sha256": "9d79e2d75b1e16b7f0b9c8540b88821ec6b8580029e26f054a7cd1a93609020b",
+      "bytes": 36652,
+      "byteIdentical": true,
+      "records": 6,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/effort-medium6.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/effort-medium6.json",
+      "sha256": "be5f5719bd93c6b5ba4b5d02e0ecdd8ccf839420cef0067c61ad40ba80729a3a",
+      "bytes": 36757,
+      "byteIdentical": true,
+      "records": 6,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/effort-high6.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/effort-high6.json",
+      "sha256": "3e6bd961c5db871632733ca504b7f07b487518f489b4cf4cb454deec6f94d166",
+      "bytes": 35913,
+      "byteIdentical": true,
+      "records": 6,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/cli-rehearsal2.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/cli-rehearsal2.json",
+      "sha256": "b5d5a104b20b005d26bc8ad8ea9bcb715813bd5f346981af226766971cd48707",
+      "bytes": 15576,
+      "byteIdentical": true,
+      "records": 2,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/api-v1.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/api-v1.json",
+      "sha256": "f93d4b490de11ac67c5fd29ae352040ea5098a409d77c0fcd32dc17c64bb6e97",
+      "bytes": 55705,
+      "byteIdentical": true,
+      "records": 2,
+      "redactedFields": 0
+    },
+    {
+      "file": "docs/results/api-v2.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/api-v2.json",
+      "sha256": "b33301a156f7db40b82b660df11a8bb8c6f83a57619f32995a7f6582ef1ead3b",
+      "bytes": 55716,
+      "byteIdentical": true,
+      "records": 2,
+      "redactedFields": 0
+    },
+    {
+      "file": "benchmark/evidence/runs-2026-09-18.json",
+      "sourceLabel": "showcase-cut-v5/comparison-evidence/baseline47.json",
+      "sha256": "4aa98b7c46958d9fdbde0f0cff70cd3c72a2f8a698e8f7219463b2acd3d73e0e",
+      "bytes": 370767,
+      "byteIdentical": true,
+      "records": 47,
+      "redactedFields": 0,
+      "duplicateOf": "docs/results/baseline47.json"
+    },
+    {
+      "file": "docs/results.json",
+      "sourceLabel": "showcase-cut-v5/COMPARISON_DATA.json",
+      "sourceSha256": "32c13add6ff855bd0ea1f00dbf09a49330192d9035b1a4fb36ee07f7cff451ad",
+      "sha256": "f085b7d33fa0e1d4ac1119f01d3bef9a8ee188f7a6180bf054674e365e3e648d",
+      "byteIdentical": false,
+      "transformations": [
+        "Repoint package navigation/links.",
+        "Add explicit public-distribution scope."
+      ],
+      "numericOrMeasurementChanges": false
+    },
+    {
+      "file": "docs/results.html",
+      "sourceLabel": "showcase-cut-v5/full-comparisons.html",
+      "sourceSha256": "0d0864330f39da6bccd9fc0d3766e02a7fd65d013c56e2f0593c9de25e4b8d02",
+      "sha256": "8052b839ee6d6d5a306a0e32503216de04fb08ceda94bd565f6d31bfda306053",
+      "byteIdentical": false,
+      "transformations": [
+        "Repoint package navigation/links.",
+        "Add explicit public-distribution scope."
+      ],
+      "numericOrMeasurementChanges": false
+    },
+    {
+      "file": "docs/results/README.md",
+      "sourceLabel": "showcase-cut-v5/ALL_RECORDED_COMPARISONS.md",
+      "sourceSha256": "712e93c8f3e3c6d81d11f897fcda2f23487759714bc7a57c039ef7ffe066858f",
+      "sha256": "4a913757d8f8309a7eb9cacae894d0292f5e1290add9ca6090ca1b8005d0999f",
+      "byteIdentical": false,
+      "transformations": [
+        "Repoint package navigation/links.",
+        "Add explicit public-distribution scope."
+      ],
+      "numericOrMeasurementChanges": false
+    }
+  ]
+}

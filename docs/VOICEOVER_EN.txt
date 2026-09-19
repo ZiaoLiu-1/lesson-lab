@@ -1,0 +1,33 @@
+What if AI could teach like a university professor at a whiteboard? I'm Ziao Liu. This is Lesson Lab: my experiment with fast inference and interactive learning.
+
+Here's my usual study workflow. I collect lecture slides, worksheets, and practice questions. ChatGPT helps organize the concepts into an HTML study guide, and I use its built-in Voice Chat to talk through the material.
+
+Here are two review websites I made for my geography and database courses, with interactive examples and animations.
+
+But sometimes the prebuilt examples on the page aren't enough. I need a clearer diagram or a different explanation. In my usual workflow, getting that change can take minutes, sometimes even hours. By then, I've lost my train of thought.
+
+I want to ask my AI professor a question and have it update our whiteboard in real time as we discuss it. That's what I wanted to try with Cerebras.
+
+Here's an example. The function is twenty x cubed. I ask for a diagram explaining the gap between the curve and its tangent. A new section appears on the page. I'm typing to simulate a spoken question; this demo isn't connected to ChatGPT Voice Chat.
+
+The diagrams were right, but the first two edits included misleading explanations. I supplied the correct relationship, and the next edit fixed the text.
+
+Behind this, I connected my question and the complete page source to Cerebras. The model returns updated HTML, CSS, and SVG, which Lesson Lab checks and displays.
+
+For a separate speed comparison, I sent the same small HTML edit to Astra through OpenAI's API and Qwen through Cerebras's API. Both received identical source and instructions through the same app code. Chrome measures the HTTP request; Lesson Lab also records when the checked page becomes visible.
+
+Let's try Astra first. The middle of this wait is sped up six times.
+
+Now Qwen on Cerebras, at normal speed. Both edits pass the same source and display checks. Here are Chrome's recorded timings.
+
+For the checked page to appear, Astra took about thirty-one seconds, and Qwen just over two. The earlier pair took about eighteen seconds for Astra and one-point-seven for Qwen.
+
+I also tested low, medium, and high effort. Those earlier runs used Astra through Codex, including startup, against Qwen's API, so they're shown separately.
+
+The earlier low-effort tests also include GPT-OSS. Each figure is a five-run median for one task. The full results are available alongside the video.
+
+Of course, speed isn't everything. The model's capabilities matter too. Qwen was much faster in these tests, but some of its explanations still needed correction. I still had to check its answers carefully.
+
+I'm optimistic about Cerebras, and I hope to see more models supported in the future, giving us more choice in how we balance speed and quality.
+
+Thank you for watching. You can find the demo, source code, and test results in the GitHub repository linked below.

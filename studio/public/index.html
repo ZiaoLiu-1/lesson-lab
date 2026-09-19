@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3eb">
+  <title>Lesson Lab — Study Studio</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/canvas.css">
+  <link rel="stylesheet" href="/finale.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body class="focus-study">
+  <a class="skip-link" href="#lesson-heading">Skip to the lesson</a>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Lesson Lab home"><span class="brand-glyph" aria-hidden="true">ƒ</span><span>LESSON LAB<small>STUDY STUDIO</small></span></a>
+    <nav class="view-nav" aria-label="Workspace"><button id="study-tab" aria-current="page" type="button">Study</button><button id="benchmark-tab" type="button">Evidence</button></nav>
+    <div class="header-actions"><span id="connection-status" class="connection" role="status">Connecting…</span><button id="reconnect" type="button" class="text-button" hidden>Reconnect</button><button id="help-toggle" class="quiet-button" type="button" aria-expanded="false" aria-controls="help-panel">Help & files</button></div>
+  </header>
+  <div id="global-error" class="global-message error" role="alert" hidden></div>
+  <div id="global-notice" class="global-message" role="status" hidden></div>
+  <section id="setup-banner" class="setup-banner" hidden><p><strong>Your lesson is ready.</strong> Add a Cerebras API key on the local server to ask the tutor questions. The prepared lesson, graph, and practice check still work.</p><button id="setup-help" type="button" class="text-button">Setup instructions ↗</button></section>
+  <section id="help-panel" class="help-panel" aria-labelledby="help-heading" hidden>
+    <div class="help-heading"><div><p class="eyebrow">YOUR LOCAL WORKSPACE</p><h2 id="help-heading">A few things to know.</h2></div><button id="help-close" type="button" class="quiet-button">Close</button></div>
+    <div class="help-columns">
+      <div><h3>Study at your own pace</h3><p>Start learning to hear the lesson and follow its highlighted passages. Interrupt with a question whenever you need to. Text & tools opens the written discussion and page navigation; manual lesson controls are available below the current step.</p><p>Changing page, selection, parameter, or model stops the current response. End learning releases the microphone. Undo restores the page before its last AI edit.</p><details class="motion-diagnostics"><summary>Motion diagnostics</summary><p id="motion-stats" class="small">No animated transition measured yet.</p></details><p class="small">Keyboard: ⌘/Ctrl + Enter sends your draft. Escape stops the current activity. Alt + ← / → changes page when you are not typing.</p><p class="small">Prepared Study uses calculated diagrams and saved AI notes. Live Canvas sends the complete current HTML to Cerebras for edits to layout, CSS, SVG and content. Use Save HTML or Undo to keep control of its generated source. The separate two-engine comparison measures HTML/SVG editing. Start it with <code>npm run benchmark:api</code>, then open the live comparison from Evidence.</p></div>
+      <div><h3>Files stay under your control</h3><div class="file-actions"><button id="export-session" type="button">Export session</button><button id="import-session" type="button">Import session</button><button id="export-lesson" type="button">Export lesson JSON</button><button id="import-lesson" type="button">Import lesson JSON</button></div><p class="small">Session import restores this same lesson and version. Lesson JSON imports a new validated lesson pack and archives the previous session. Packs must use the supported function model. PDF conversion is not included.</p><input id="session-file" type="file" accept="application/json,.json" hidden><input id="lesson-file" type="file" accept="application/json,.json" hidden></div>
+      <div><h3>Voice & setup</h3><p>Start learning enables continuous local microphone capture and local speech recognition, with Cerebras replies and local read-aloud. Speaking interrupts a reply. Say “continue” to resume the lesson or “stop listening” to end. End learning releases the microphone; it never starts again on its own. The separate Mic button in Text & tools keeps transcript review before sending and may use your browser’s online recognition service.</p><p>The microphone is off on load. Learning mode reads confirmed replies automatically and bypasses Codex. Use headphones for the first check; speaker echo cancellation and local speech output need device testing.</p><label class="voice-picker" for="speech-output">Speech output<select id="speech-output" disabled><option value="browser">Browser local voice</option></select></label><label class="voice-picker" for="local-voice">Browser English voice<select id="local-voice" disabled><option value="">Automatic local voice</option></select></label><p id="voice-picker-status" class="small">Only voices reported as local and English are listed; playback availability can vary.</p><p class="small">For live answers, set <code>CEREBRAS_API_KEY</code> in the server environment, restart the local Studio server, then Reconnect. The key is never entered into this page.</p><p class="small">AI explanations can be wrong. Numerical claims are checked against the graph's calculated values; that does not verify every sentence. This sample is a study aid, not a graded assessment.</p></div>
+    </div>
+  </section>
+  <main id="study-view" class="study-layout">
+    <aside class="contents-rail" aria-label="Lesson contents">
+      <div class="course-heading"><p class="eyebrow">A SMALL COURSE IN</p><h1 id="course-title">Loading your lesson</h1><p id="course-subtitle"></p></div>
+      <nav id="contents" class="contents" aria-label="Pages"></nav>
+      <div class="rail-bottom"><p id="course-progress" class="small">Your place is saved in this local session.</p><div class="page-nav"><button id="previous-page" class="quiet-button" type="button" aria-label="Previous page">←</button><span id="page-count"></span><button id="next-page" class="quiet-button" type="button" aria-label="Next page">→</button></div><button id="undo" class="text-button" type="button">↶ Undo last AI edit</button></div>
+    </aside>
+    <article class="lesson-sheet" aria-labelledby="lesson-heading">
+      <div class="page-heading"><p id="page-eyebrow" class="eyebrow">THE LESSON</p><h2 id="lesson-heading" tabindex="-1">One idea at a time.</h2><p id="page-summary" class="page-summary">Your prepared lesson will appear here.</p></div>
+      <div class="showcase-tools"><a href="http://127.0.0.1:4337/" target="_blank" rel="noopener">Compare direct APIs ↗</a><button type="button" class="text-button showcase-complete">Showcase complete</button></div>
+      <div class="canvas-entry"><button id="open-canvas" type="button" class="quiet-button">Edit this page ↗</button><span>Ask for a new theme, a new example, or a completely different page.</span></div>
+      <section class="teaching-strip" aria-label="Guided lesson">
+        <div class="teaching-meta"><span id="teaching-mode">Prepared lesson</span><span id="step-count"></span></div>
+        <p id="step-text">Start learning, then follow the highlighted passage. You can interrupt with a question.</p>
+        <details class="lesson-controls"><summary>Manual lesson controls</summary><div class="teaching-actions"><button id="start-guided-audio" type="button" class="quiet-button" disabled>Teach without microphone</button><button id="start-lesson" type="button" class="quiet-button">Start lesson</button><button id="continue-lesson" type="button" hidden>Continue lesson ↗</button><button id="mark-step" class="quiet-button" type="button" hidden>Mark step read</button><button id="next-step" class="quiet-button" type="button" hidden>Next step →</button><button id="read-step" class="text-button" type="button" hidden>Read aloud</button></div><label class="follow-option"><input id="follow-teaching" type="checkbox" checked> Follow the explanation <span>Keep the current passage in view.</span></label></details>
+      </section>
+      <section class="graph-section" aria-labelledby="graph-heading">
+        <div class="graph-heading"><div><p class="eyebrow">THE WORKING EXAMPLE</p><h3 id="graph-heading">f(x) = x²</h3></div><span class="source-tag computed">Calculated</span></div>
+        <svg id="lesson-graph" viewBox="0 0 640 335" role="img" aria-labelledby="graph-title graph-description"><title id="graph-title">Quadratic function</title><desc id="graph-description">The curve and numerical values are computed from the current parameter.</desc></svg>
+        <div id="graph-legend" class="graph-legend"></div>
+        <div id="computed-comparison" class="computed-comparison" hidden></div>
+        <p id="graph-footnote" class="graph-footnote">At x = 1 · finite comparison ends at x = 2.</p>
+        <details class="function-details"><summary>Function & example settings</summary><code id="live-function-code">f(x) = a * x ** 2</code><div class="parameter-control"><label for="parameter">Curve coefficient <strong>a = <output id="parameter-value">1</output></strong></label><input id="parameter" type="range" min="0.5" max="10" step="0.1" value="1"><span id="parameter-status" class="small">Change one thing; watch what follows.</span></div></details>
+      </section>
+      <div id="lesson-blocks" class="lesson-blocks"></div>
+      <section id="live-answer" class="live-answer" aria-labelledby="live-answer-title" hidden><span id="live-answer-kind" class="source-tag ai">AI-generated</span><h3 id="live-answer-title">Your question, explained.</h3><p id="live-answer-text"></p></section>
+      <section id="live-notes-section" class="live-notes-section" hidden><div class="section-heading"><h3>Notes on this page</h3><span id="note-count" class="small"></span></div><div id="live-notes"></div></section>
+      <section id="quiz-section" class="quiz-section" hidden aria-labelledby="quiz-heading"><p class="eyebrow">CHECK YOUR UNDERSTANDING</p><h3 id="quiz-heading"></h3><form id="quiz-form"><fieldset id="quiz-options"><legend class="sr-only">Choose an answer</legend></fieldset><button type="submit" class="quiet-button">Check answer</button></form><p id="quiz-feedback" class="quiz-feedback" role="status"></p></section>
+      <footer class="lesson-footer"><span>Prepared material and AI additions stay distinct.</span><details><summary>Lesson sources</summary><ul id="lesson-sources"></ul></details></footer>
+    </article>
+    <section id="canvas-workspace" class="canvas-workspace" aria-label="Live HTML canvas" hidden>
+      <div class="canvas-toolbar"><div><strong>Live canvas</strong><div id="canvas-selection" class="canvas-caption">Click a section to focus your next edit.</div></div><div class="canvas-actions"><button class="text-button showcase-complete" type="button">Showcase complete</button><button id="canvas-back" class="text-button" type="button">Prepared lesson</button><button id="canvas-undo" class="quiet-button" type="button" disabled>Undo</button><button id="canvas-stop-voice" class="quiet-button" type="button" hidden>Stop speaking</button><button id="canvas-download" class="quiet-button" type="button">Save HTML</button></div></div>
+      <div class="canvas-examples"><button type="button" class="quiet-button" data-canvas-prompt="Redesign this entire page with a midnight blue background, warm cream typography, and coral accents. Keep the mathematical content correct.">Change the theme</button><button type="button" class="quiet-button" data-canvas-prompt="Change the coefficient to 15. Rewrite the HTML and SVG graph for the current function, update the axis scale, labels, tangent and explanations consistently.">Try coefficient 15</button><button type="button" class="quiet-button" data-canvas-prompt="Add a new visual section explaining why the tangent is a local approximation. Include a worked example and a diagram.">Add a visual section</button></div>
+      <div id="canvas-stage" class="canvas-stage"><iframe id="canvas-document" class="canvas-document" title="Editable lesson page" sandbox="allow-same-origin" referrerpolicy="no-referrer"></iframe><div id="canvas-frame" class="canvas-frame" hidden></div><div id="canvas-placeholder" class="canvas-placeholder" role="status" hidden><strong>Working on it.</strong><p id="canvas-phase">Cerebras is writing your page.</p><div class="canvas-progress" role="progressbar" aria-label="Generating page" aria-valuetext="Working; completion time unknown"></div><button id="canvas-cancel" type="button" class="quiet-button">Stop</button></div></div>
+      <p id="canvas-status" class="canvas-caption" role="status">The complete HTML is editable. Select any section and describe your change.</p><p id="canvas-timing" class="canvas-timing"></p><p id="canvas-script" class="canvas-script"></p>
+      <details id="canvas-code" class="canvas-code"><summary>Complete HTML source</summary><pre id="canvas-source"></pre></details>
+    </section>
+    <aside id="discussion-rail" class="discussion-rail" aria-labelledby="discussion-heading">
+      <div class="discussion-header"><div><p class="eyebrow">THINK IT THROUGH</p><h2 id="discussion-heading">Ask your tutor.</h2></div><label class="model-label" for="model-select">Live engine<select id="model-select"><option value="qwen">Qwen · Cerebras</option><option value="gptoss">GPT-OSS · Cerebras</option></select></label></div>
+      <div id="focus-context" class="focus-context"><span class="focus-dot" aria-hidden="true"></span><span id="focus-label">Current page</span></div>
+      <div id="teaching-location" class="teaching-location" hidden><span id="teaching-location-label" role="status"></span><button id="show-teaching" class="text-button" type="button">Show passage ↗</button></div>
+      <div id="canvas-discussion" class="canvas-discussion" hidden><p>Describe a change or ask about the selected section. The complete current HTML goes to Cerebras.</p></div>
+      <div id="conversation" class="conversation" aria-label="Discussion" aria-live="polite"><div class="discussion-empty"><span aria-hidden="true">“</span><p>A question is a good place to start.</p><small>Ask for a different explanation, change the example, or test an idea.</small></div></div>
+      <div id="turn-status" class="turn-status" role="status" hidden><span id="turn-status-label"></span><button id="stop" type="button" class="text-button">Stop ■</button></div>
+      <details id="timing-details" class="timing-details" hidden><summary>What happened this turn</summary><dl id="timing-values"></dl><ol id="turn-timeline"></ol></details>
+      <form id="question-form" class="composer">
+        <div id="quick-questions" class="quick-questions" aria-label="Suggested questions"></div>
+        <label for="question" class="sr-only">Ask about this lesson</label><textarea id="question" rows="3" maxlength="2000" placeholder="What would make this clearer?"></textarea>
+        <div id="draft-warning" class="draft-warning" hidden><p>This voice draft began in a different view. Choose its context before sending.</p><button id="reanchor-draft" type="button" class="text-button">Use the current page</button></div>
+        <div class="composer-actions"><button id="microphone" type="button" class="mic-button" aria-label="Start voice input" aria-pressed="false">Mic</button><span id="question-hint" class="small">⌘ / Ctrl + Enter</span><button id="send" type="submit" class="primary-button">Ask ↗</button></div>
+        <div class="voice-options"><label><input id="read-replies" type="checkbox"> Read replies</label><button id="stop-audio" class="text-button" type="button" hidden>Stop reading</button><span class="small">Local voice · experimental</span></div>
+        <p id="voice-status" class="voice-status" role="status">Mic adds a transcript for review before sending.</p>
+      </form>
+    </aside>
+    <section id="continuous-voice" class="continuous-voice learning-dock" aria-label="Learning connection">
+      <div class="continuous-heading"><strong>Learn, one idea at a time.</strong><span id="continuous-state" role="status">Microphone off</span></div>
+      <button id="conversation-toggle" type="button" class="primary-button" aria-pressed="false" disabled>Start learning</button>
+      <button id="discussion-toggle" type="button" class="text-button" aria-expanded="false" aria-controls="discussion-rail">Text & tools</button>
+      <p id="continuous-status" role="status">Connect once. Follow the lesson and interrupt with a question.</p>
+      <p id="continuous-unavailable" hidden></p>
+    </section>
+  </main>
+  <section id="benchmark-view" class="benchmark-view" hidden aria-labelledby="benchmark-heading"><p class="eyebrow">FROM THE RECORDED EXPERIMENT</p><h1 id="benchmark-heading">Evidence, with its limits.</h1><p class="benchmark-intro">A frozen comparison of small HTML/SVG lesson edits. This view reads saved results and never starts a model request.</p><div id="benchmark-content"><p>Open Evidence to load the recorded results.</p></div><div class="evidence-actions"><button id="download-benchmark" type="button" class="quiet-button" disabled>Download frozen evidence</button><a href="http://127.0.0.1:4337/" target="_blank" rel="noopener noreferrer">Open live code-edit comparison ↗</a></div></section>
+  <svg id="passage-halo" class="passage-halo" width="100" height="100" viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="2" vector-effect="non-scaling-stroke" /></svg>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

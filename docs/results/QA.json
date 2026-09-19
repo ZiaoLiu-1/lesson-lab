@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "sourceFiles": 8,
+  "indexedRecords": 77,
+  "historicalMeasured": 69,
+  "rehearsals": 8,
+  "pendingReviews": 4,
+  "aggregateGroupsChecked": 41,
+  "scatterPointsChecked": 63,
+  "modelCalls": 0,
+  "exactConfiguredSecretMatches": 0,
+  "absolutePrivatePathRedactions": 0,
+  "rawSourceFilesByteIdentical": 8
+}

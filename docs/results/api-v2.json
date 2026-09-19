@@ -1,0 +1,806 @@
+[
+  {
+    "runId": "49e345e7-dc33-4d87-a099-7dd82f14c0a8",
+    "pairId": "055e3f2a-0314-478a-86f7-2c5f10d2092c",
+    "protocolVersion": "lesson-code-edit-dual-http-low-v2",
+    "lane": "astra",
+    "taskId": "T1",
+    "phase": "rehearsal",
+    "startedAt": "2026-09-19T17:52:51.996Z",
+    "status": "rendered",
+    "review": "pending",
+    "sourceHash": "50f56011f364744ca38f2fc8947c977bcc1d76d43351dbbe9f43ec6d6cdfae3d",
+    "promptHash": "671557108c1467af8f817c3ef4248fc1cb57d2c6cf83b9f0ec301d3276f7e14b",
+    "schemaHash": "ec3f016890518cfdbf8459927d34ed56f47d0642d762c0dc8d13dd3e3463f651",
+    "stylesHash": "cd2a1426b146feb443e77846c15c9970842c497efb025fbaae5207541d1028f8",
+    "requestEvidence": {
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "body": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low",
+        "max_completion_tokens": 8192,
+        "stream": false,
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+          }
+        ],
+        "response_format": {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "edited_lesson",
+            "strict": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "html": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "html",
+                "summary"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "bodyHash": "88541076df9b123de9dba88747d96eee3b70ec1d92ee7868ac7afb4cfcde246d",
+      "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+    },
+    "events": [
+      {
+        "name": "started",
+        "elapsedMs": 17.272,
+        "lane": "astra",
+        "effectiveConfig": {
+          "model": "gpt-6-astra",
+          "endpoint": "https://api.openai.com/v1/chat/completions",
+          "reasoningEffort": "low",
+          "maxCompletionTokens": 8192,
+          "streaming": false,
+          "temperature": null,
+          "transport": "Direct Chat Completions API",
+          "tools": false,
+          "retries": 0,
+          "timeoutMs": 90000
+        },
+        "requestEvidence": {
+          "endpoint": "https://api.openai.com/v1/chat/completions",
+          "body": {
+            "model": "gpt-6-astra",
+            "reasoning_effort": "low",
+            "max_completion_tokens": 8192,
+            "stream": false,
+            "messages": [
+              {
+                "role": "user",
+                "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+              }
+            ],
+            "response_format": {
+              "type": "json_schema",
+              "json_schema": {
+                "name": "edited_lesson",
+                "strict": true,
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "html": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "html",
+                    "summary"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "bodyHash": "88541076df9b123de9dba88747d96eee3b70ec1d92ee7868ac7afb4cfcde246d",
+          "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+        }
+      },
+      {
+        "name": "dispatch",
+        "elapsedMs": 45.095,
+        "dispatchAt": "2026-09-19T17:52:52.046Z",
+        "dispatchMs": 18.487,
+        "endpoint": "https://api.openai.com/v1/chat/completions"
+      },
+      {
+        "name": "response_headers",
+        "elapsedMs": 22281.774,
+        "httpStatus": 200,
+        "requestId": "req_0dedfd76730b446cbbe39c143626d78f",
+        "responseHeadersMs": 21410.304,
+        "responseHeadersAfterDispatchMs": 21391.817
+      },
+      {
+        "name": "body_complete",
+        "elapsedMs": 30216.851,
+        "bodyCompleteMs": 30145.909,
+        "bodyCompleteAfterDispatchMs": 30127.422
+      },
+      {
+        "name": "complete",
+        "elapsedMs": 30344.749,
+        "metadata": {
+          "lane": "astra",
+          "model": "gpt-6-astra",
+          "modelReported": "gpt-6-astra",
+          "modelSource": "provider response",
+          "providerId": "chatcmpl-EPtX3ysPwEky1TF3Sm7ITRqVmueyu",
+          "providerIdKind": "chat_completion",
+          "requestId": "req_0dedfd76730b446cbbe39c143626d78f",
+          "usage": {
+            "prompt_tokens": 1068,
+            "completion_tokens": 596,
+            "total_tokens": 1664,
+            "prompt_tokens_details": {
+              "cached_tokens": 1065,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "finishReason": "stop",
+          "httpStatus": 200,
+          "effectiveConfig": {
+            "model": "gpt-6-astra",
+            "endpoint": "https://api.openai.com/v1/chat/completions",
+            "reasoningEffort": "low",
+            "maxCompletionTokens": 8192,
+            "streaming": false,
+            "temperature": null,
+            "transport": "Direct Chat Completions API",
+            "tools": false,
+            "retries": 0,
+            "timeoutMs": 90000
+          },
+          "startedAt": "2026-09-19T17:52:52.028Z",
+          "elapsedMs": 30341.874,
+          "firstOutputMs": null,
+          "firstOutputKind": null,
+          "requestEvidence": {
+            "endpoint": "https://api.openai.com/v1/chat/completions",
+            "body": {
+              "model": "gpt-6-astra",
+              "reasoning_effort": "low",
+              "max_completion_tokens": 8192,
+              "stream": false,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+                }
+              ],
+              "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                  "name": "edited_lesson",
+                  "strict": true,
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "html": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "html",
+                      "summary"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              }
+            },
+            "bodyHash": "88541076df9b123de9dba88747d96eee3b70ec1d92ee7868ac7afb4cfcde246d",
+            "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+          },
+          "dispatchAt": "2026-09-19T17:52:52.046Z",
+          "dispatchMs": 18.487,
+          "responseHeadersMs": 21410.304,
+          "bodyCompleteMs": 30145.909,
+          "responseHeadersAfterDispatchMs": 21391.817,
+          "bodyCompleteAfterDispatchMs": 30127.422
+        }
+      }
+    ],
+    "browser": {
+      "renderedMs": 31446.5,
+      "uiResponseMs": 25.69999998807907,
+      "codeReceivedMs": 31074.399999976158
+    },
+    "serverMs": 30488.61450000001,
+    "metadata": {
+      "lane": "astra",
+      "model": "gpt-6-astra",
+      "modelReported": "gpt-6-astra",
+      "modelSource": "provider response",
+      "providerId": "chatcmpl-EPtX3ysPwEky1TF3Sm7ITRqVmueyu",
+      "providerIdKind": "chat_completion",
+      "requestId": "req_0dedfd76730b446cbbe39c143626d78f",
+      "usage": {
+        "prompt_tokens": 1068,
+        "completion_tokens": 596,
+        "total_tokens": 1664,
+        "prompt_tokens_details": {
+          "cached_tokens": 1065,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "finishReason": "stop",
+      "httpStatus": 200,
+      "effectiveConfig": {
+        "model": "gpt-6-astra",
+        "endpoint": "https://api.openai.com/v1/chat/completions",
+        "reasoningEffort": "low",
+        "maxCompletionTokens": 8192,
+        "streaming": false,
+        "temperature": null,
+        "transport": "Direct Chat Completions API",
+        "tools": false,
+        "retries": 0,
+        "timeoutMs": 90000
+      },
+      "startedAt": "2026-09-19T17:52:52.028Z",
+      "elapsedMs": 30341.874,
+      "firstOutputMs": null,
+      "firstOutputKind": null,
+      "requestEvidence": {
+        "endpoint": "https://api.openai.com/v1/chat/completions",
+        "body": {
+          "model": "gpt-6-astra",
+          "reasoning_effort": "low",
+          "max_completion_tokens": 8192,
+          "stream": false,
+          "messages": [
+            {
+              "role": "user",
+              "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+            }
+          ],
+          "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+              "name": "edited_lesson",
+              "strict": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "html": {
+                    "type": "string"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "html",
+                  "summary"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "bodyHash": "88541076df9b123de9dba88747d96eee3b70ec1d92ee7868ac7afb4cfcde246d",
+        "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+      },
+      "dispatchAt": "2026-09-19T17:52:52.046Z",
+      "dispatchMs": 18.487,
+      "responseHeadersMs": 21410.304,
+      "bodyCompleteMs": 30145.909,
+      "responseHeadersAfterDispatchMs": 21391.817,
+      "bodyCompleteAfterDispatchMs": 30127.422
+    },
+    "html": "<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <line id=\"tangent\" x1=\"40\" y1=\"240\" x2=\"320\" y2=\"80\" stroke=\"#2563eb\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p id=\"tangent-note\">Tangent slope: 2. This is the local slope of the curve at x = 1, not an exact change over a finite interval.</p>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>",
+    "summary": "Added a blue tangent and a short explanation of the local slope at x = 1.",
+    "checks": {
+      "pass": true,
+      "checks": [
+        {
+          "name": "Bounded HTML source",
+          "pass": true
+        },
+        {
+          "name": "Passive allowlisted HTML/SVG only",
+          "pass": true
+        },
+        {
+          "name": "Single preserved root",
+          "pass": true
+        }
+      ]
+    },
+    "outputHash": "8dd4689461cc630e4d24e781b644ae0b3db2161886f578676fd59288a7355e5d",
+    "domChecks": {
+      "pass": true,
+      "checks": [
+        {
+          "name": "Recording tab stayed visible",
+          "pass": true
+        },
+        {
+          "name": "Entire lesson frame is in the recording viewport",
+          "pass": true
+        },
+        {
+          "name": "Lesson root was rendered",
+          "pass": true
+        },
+        {
+          "name": "One lesson root",
+          "pass": true
+        },
+        {
+          "name": "Original graph viewBox",
+          "pass": true
+        },
+        {
+          "name": "Original parabola preserved",
+          "pass": true
+        },
+        {
+          "name": "Original point preserved",
+          "pass": true
+        },
+        {
+          "name": "Graph elements have SVG semantics",
+          "pass": true
+        },
+        {
+          "name": "Original lesson text preserved",
+          "pass": true
+        },
+        {
+          "name": "Tangent geometry",
+          "pass": true
+        },
+        {
+          "name": "Tangent is a line in the graph",
+          "pass": true
+        },
+        {
+          "name": "Tangent label",
+          "pass": true
+        },
+        {
+          "name": "Known task",
+          "pass": true
+        },
+        {
+          "name": "Changed element is visible: #tangent",
+          "pass": true
+        },
+        {
+          "name": "Changed element is visible: #tangent-note",
+          "pass": true
+        }
+      ]
+    }
+  },
+  {
+    "runId": "cf7174af-94a1-4286-89e3-5f9718f56905",
+    "pairId": "055e3f2a-0314-478a-86f7-2c5f10d2092c",
+    "protocolVersion": "lesson-code-edit-dual-http-low-v2",
+    "lane": "cerebras-qwen",
+    "taskId": "T1",
+    "phase": "rehearsal",
+    "startedAt": "2026-09-19T17:53:24.700Z",
+    "status": "rendered",
+    "review": "pending",
+    "sourceHash": "50f56011f364744ca38f2fc8947c977bcc1d76d43351dbbe9f43ec6d6cdfae3d",
+    "promptHash": "671557108c1467af8f817c3ef4248fc1cb57d2c6cf83b9f0ec301d3276f7e14b",
+    "schemaHash": "ec3f016890518cfdbf8459927d34ed56f47d0642d762c0dc8d13dd3e3463f651",
+    "stylesHash": "cd2a1426b146feb443e77846c15c9970842c497efb025fbaae5207541d1028f8",
+    "requestEvidence": {
+      "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+      "body": {
+        "model": "qwen-3.8-27b",
+        "reasoning_effort": "low",
+        "max_completion_tokens": 8192,
+        "stream": false,
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+          }
+        ],
+        "response_format": {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "edited_lesson",
+            "strict": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "html": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "html",
+                "summary"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "bodyHash": "2aef6b2cd3aa6eb0fc5b7d47571d0dec49aa24031b8ef9802cea57d8c0cc3fe2",
+      "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+    },
+    "events": [
+      {
+        "name": "started",
+        "elapsedMs": 0.784,
+        "lane": "cerebras-qwen",
+        "effectiveConfig": {
+          "model": "qwen-3.8-27b",
+          "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+          "reasoningEffort": "low",
+          "maxCompletionTokens": 8192,
+          "streaming": false,
+          "temperature": null,
+          "transport": "Direct Chat Completions API",
+          "tools": false,
+          "retries": 0,
+          "timeoutMs": 90000
+        },
+        "requestEvidence": {
+          "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+          "body": {
+            "model": "qwen-3.8-27b",
+            "reasoning_effort": "low",
+            "max_completion_tokens": 8192,
+            "stream": false,
+            "messages": [
+              {
+                "role": "user",
+                "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+              }
+            ],
+            "response_format": {
+              "type": "json_schema",
+              "json_schema": {
+                "name": "edited_lesson",
+                "strict": true,
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "html": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "html",
+                    "summary"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "bodyHash": "2aef6b2cd3aa6eb0fc5b7d47571d0dec49aa24031b8ef9802cea57d8c0cc3fe2",
+          "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+        }
+      },
+      {
+        "name": "dispatch",
+        "elapsedMs": 102.033,
+        "dispatchAt": "2026-09-19T17:53:24.746Z",
+        "dispatchMs": 0.88,
+        "endpoint": "https://api.cerebras.ai/v1/chat/completions"
+      },
+      {
+        "name": "response_headers",
+        "elapsedMs": 1385.778,
+        "httpStatus": 200,
+        "requestId": "a3da73260d3cbf5d-CMH",
+        "responseHeadersMs": 1385.712,
+        "responseHeadersAfterDispatchMs": 1384.832
+      },
+      {
+        "name": "body_complete",
+        "elapsedMs": 1408.741,
+        "bodyCompleteMs": 1408.713,
+        "bodyCompleteAfterDispatchMs": 1407.833
+      },
+      {
+        "name": "complete",
+        "elapsedMs": 1409.241,
+        "metadata": {
+          "lane": "cerebras-qwen",
+          "model": "qwen-3.8-27b",
+          "modelReported": "qwen-3.8-27b",
+          "modelSource": "provider response",
+          "providerId": "chatcmpl-49f29746-f9fa-4023-a9a7-50f44f1ee234",
+          "providerIdKind": "chat_completion",
+          "requestId": "a3da73260d3cbf5d-CMH",
+          "usage": {
+            "prompt_tokens": 1326,
+            "completion_tokens": 931,
+            "total_tokens": 2257,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 244
+            }
+          },
+          "finishReason": "stop",
+          "httpStatus": 200,
+          "effectiveConfig": {
+            "model": "qwen-3.8-27b",
+            "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+            "reasoningEffort": "low",
+            "maxCompletionTokens": 8192,
+            "streaming": false,
+            "temperature": null,
+            "transport": "Direct Chat Completions API",
+            "tools": false,
+            "retries": 0,
+            "timeoutMs": 90000
+          },
+          "startedAt": "2026-09-19T17:53:24.745Z",
+          "elapsedMs": 1409.231,
+          "firstOutputMs": null,
+          "firstOutputKind": null,
+          "requestEvidence": {
+            "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+            "body": {
+              "model": "qwen-3.8-27b",
+              "reasoning_effort": "low",
+              "max_completion_tokens": 8192,
+              "stream": false,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+                }
+              ],
+              "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                  "name": "edited_lesson",
+                  "strict": true,
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "html": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "html",
+                      "summary"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              }
+            },
+            "bodyHash": "2aef6b2cd3aa6eb0fc5b7d47571d0dec49aa24031b8ef9802cea57d8c0cc3fe2",
+            "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+          },
+          "dispatchAt": "2026-09-19T17:53:24.746Z",
+          "dispatchMs": 0.88,
+          "responseHeadersMs": 1385.712,
+          "bodyCompleteMs": 1408.713,
+          "responseHeadersAfterDispatchMs": 1384.832,
+          "bodyCompleteAfterDispatchMs": 1407.833
+        }
+      }
+    ],
+    "browser": {
+      "renderedMs": 2247.600000023842,
+      "uiResponseMs": 32.80000001192093,
+      "codeReceivedMs": 2072
+    },
+    "serverMs": 1458.4864169999928,
+    "metadata": {
+      "lane": "cerebras-qwen",
+      "model": "qwen-3.8-27b",
+      "modelReported": "qwen-3.8-27b",
+      "modelSource": "provider response",
+      "providerId": "chatcmpl-49f29746-f9fa-4023-a9a7-50f44f1ee234",
+      "providerIdKind": "chat_completion",
+      "requestId": "a3da73260d3cbf5d-CMH",
+      "usage": {
+        "prompt_tokens": 1326,
+        "completion_tokens": 931,
+        "total_tokens": 2257,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 244
+        }
+      },
+      "finishReason": "stop",
+      "httpStatus": 200,
+      "effectiveConfig": {
+        "model": "qwen-3.8-27b",
+        "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+        "reasoningEffort": "low",
+        "maxCompletionTokens": 8192,
+        "streaming": false,
+        "temperature": null,
+        "transport": "Direct Chat Completions API",
+        "tools": false,
+        "retries": 0,
+        "timeoutMs": 90000
+      },
+      "startedAt": "2026-09-19T17:53:24.745Z",
+      "elapsedMs": 1409.231,
+      "firstOutputMs": null,
+      "firstOutputKind": null,
+      "requestEvidence": {
+        "endpoint": "https://api.cerebras.ai/v1/chat/completions",
+        "body": {
+          "model": "qwen-3.8-27b",
+          "reasoning_effort": "low",
+          "max_completion_tokens": 8192,
+          "stream": false,
+          "messages": [
+            {
+              "role": "user",
+              "content": "You are editing an English teaching page. Perform exactly the requested code change on the supplied original HTML fragment. Return a JSON object with exactly two strings: html (the complete updated fragment) and summary (one short English sentence). Do not use tools or access files. All needed source and facts are below.\nThe unchanged host supplies CSS for the IDs used in the task. Produce real HTML and SVG code; do not return a patch, Markdown fences, JavaScript, style tags, external resources, event handlers, links, comments, or a full HTML document. Preserve the single outer div id=\"lesson-root\" and the original IDs, curve path, point coordinates, graph viewBox, and existing text. Add only the elements needed for the task. Keep the fragment under 16000 characters. Use quoted attributes.\nAllowed tags: div, section, article, p, h2, h3, span, strong, em, ul, li, br, svg, g, path, circle, line, text, title, desc.\nAllowed attributes: id, class, role, aria-label, viewBox, x, y, x1, y1, x2, y2, cx, cy, r, d, fill, stroke, stroke-width, stroke-dasharray, font-size, font-weight, text-anchor, width, height. No inline style. Use ordinary short English; math text is plain Unicode, not LaTeX.\nVerified facts: f(x)=x²; f(1)=1; f(2)=4; f'(1)=2. The tangent at x=1 is L(x)=2x-1. From x=1 to x=2, the tangent rises by exactly 2, while the curve rises by exactly 3; the secant slope is 3. A derivative is local, not an exact finite change in the curve. The graph uses pixel X=40+140*x, Y=200-40*y. Thus the tangent endpoints are (40,240),(320,80), and the secant endpoints are (180,160),(320,40).\nThe host will check required IDs, numeric geometry, exact labels, and preservation of the baseline. Human visual/content review is separate.\n\nTASK T1:\nHelp me see the slope at x = 1. Add a blue tangent to the graph and a short explanation below it. Use a line with id=\"tangent\", x1=\"40\", y1=\"240\", x2=\"320\", y2=\"80\", stroke=\"#2563eb\", and stroke-width=\"3\". Add a visible paragraph with id=\"tangent-note\" containing the exact label \"Tangent slope: 2\" and explain that this is the local slope at x = 1. Keep the existing curve and point.\n\nORIGINAL HTML:\n<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>\n"
+            }
+          ],
+          "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+              "name": "edited_lesson",
+              "strict": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "html": {
+                    "type": "string"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "html",
+                  "summary"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "bodyHash": "2aef6b2cd3aa6eb0fc5b7d47571d0dec49aa24031b8ef9802cea57d8c0cc3fe2",
+        "matchedBodyHash": "05bf21f525174fd5bb737a808fa129ca77b1057698a6b5a7ade93479760e681f"
+      },
+      "dispatchAt": "2026-09-19T17:53:24.746Z",
+      "dispatchMs": 0.88,
+      "responseHeadersMs": 1385.712,
+      "bodyCompleteMs": 1408.713,
+      "responseHeadersAfterDispatchMs": 1384.832,
+      "bodyCompleteAfterDispatchMs": 1407.833
+    },
+    "html": "<div id=\"lesson-root\">\n  <p class=\"eyebrow\">CALCULUS / A LOCAL VIEW</p>\n  <h2>One curve. Two kinds of change.</h2>\n  <p id=\"intro\">For f(x) = x², start at x = 1. The point is (1, 1).</p>\n  <svg id=\"lesson-graph\" viewBox=\"0 0 360 260\" role=\"img\" aria-label=\"The curve y equals x squared, with the point one, one marked\">\n    <title>A point on a parabola</title>\n    <line x1=\"40\" y1=\"200\" x2=\"338\" y2=\"200\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"20\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n    <path id=\"curve\" d=\"M 40 200 Q 180 200 320 40\" fill=\"none\" stroke=\"#1e293b\" stroke-width=\"3\" />\n    <line id=\"tangent\" x1=\"40\" y1=\"240\" x2=\"320\" y2=\"80\" stroke=\"#2563eb\" stroke-width=\"3\" />\n    <circle id=\"current-point\" cx=\"180\" cy=\"160\" r=\"5\" fill=\"#1e293b\" />\n    <text x=\"192\" y=\"159\" fill=\"#475569\" font-size=\"13\">(1, 1)</text>\n    <text x=\"334\" y=\"220\" fill=\"#64748b\" font-size=\"13\">x</text>\n    <text x=\"20\" y=\"25\" fill=\"#64748b\" font-size=\"13\">y</text>\n    <text x=\"32\" y=\"219\" fill=\"#64748b\" font-size=\"12\">0</text>\n    <text x=\"176\" y=\"219\" fill=\"#64748b\" font-size=\"12\">1</text>\n    <text x=\"316\" y=\"219\" fill=\"#64748b\" font-size=\"12\">2</text>\n  </svg>\n  <p id=\"tangent-note\"><strong>Tangent slope: 2</strong> — This is the local slope at x = 1. It tells you the rate of change at that single point, not the average change over an interval.</p>\n  <p class=\"caption\">A prepared lesson. Ask for a visual explanation.</p>\n</div>",
+    "summary": "Added a blue tangent line at x=1 to the graph and a paragraph explaining the local slope is 2.",
+    "checks": {
+      "pass": true,
+      "checks": [
+        {
+          "name": "Bounded HTML source",
+          "pass": true
+        },
+        {
+          "name": "Passive allowlisted HTML/SVG only",
+          "pass": true
+        },
+        {
+          "name": "Single preserved root",
+          "pass": true
+        }
+      ]
+    },
+    "outputHash": "a6a582fe3e265c5cbdcd646c94856404c14e052b477c852d8b332b8c3a838ae9",
+    "domChecks": {
+      "pass": true,
+      "checks": [
+        {
+          "name": "Recording tab stayed visible",
+          "pass": true
+        },
+        {
+          "name": "Entire lesson frame is in the recording viewport",
+          "pass": true
+        },
+        {
+          "name": "Lesson root was rendered",
+          "pass": true
+        },
+        {
+          "name": "One lesson root",
+          "pass": true
+        },
+        {
+          "name": "Original graph viewBox",
+          "pass": true
+        },
+        {
+          "name": "Original parabola preserved",
+          "pass": true
+        },
+        {
+          "name": "Original point preserved",
+          "pass": true
+        },
+        {
+          "name": "Graph elements have SVG semantics",
+          "pass": true
+        },
+        {
+          "name": "Original lesson text preserved",
+          "pass": true
+        },
+        {
+          "name": "Tangent geometry",
+          "pass": true
+        },
+        {
+          "name": "Tangent is a line in the graph",
+          "pass": true
+        },
+        {
+          "name": "Tangent label",
+          "pass": true
+        },
+        {
+          "name": "Known task",
+          "pass": true
+        },
+        {
+          "name": "Changed element is visible: #tangent",
+          "pass": true
+        },
+        {
+          "name": "Changed element is visible: #tangent-note",
+          "pass": true
+        }
+      ]
+    }
+  }
+]

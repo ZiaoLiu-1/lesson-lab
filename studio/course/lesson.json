@@ -1,0 +1,61 @@
+{
+  "id": "local-change", "version": "1.0.0",
+  "title": "A curve, a tangent, a better question.",
+  "subtitle": "An interactive field guide to local and finite change.",
+  "example": {"kind":"quadratic","initialA":1,"minA":0.5,"maxA":10},
+  "sources": [
+    {"id":"source.local","title":"Prepared note 01 · Local slope of a quadratic"},
+    {"id":"source.finite","title":"Prepared note 02 · Exact change on a finite interval"},
+    {"id":"source.model","title":"Prepared note 03 · What a tangent predicts"}
+  ],
+  "pages": [
+    {
+      "id":"p1", "eyebrow":"01 / NOTICE THE LOCAL VIEW", "title":"The slope belongs to a point.",
+      "summary":"A derivative describes how a curve changes right here. A tangent makes that local rate visible.",
+      "blocks":[
+        {"id":"p1.function","title":"Start with a family of curves","text":"Our example is f(x) = a × x². The parameter a changes the height and steepness. The marked point stays at x = 1; its height is a.","formula":"f(x) = a x²"},
+        {"id":"p1.derivative","title":"Ask for the local slope","text":"The derivative is f′(x) = 2ax. At the marked point, f′(1) = 2a. This is the instantaneous rate at x = 1, not the exact rise of the curve over a whole unit step.","formula":"f′(1) = 2a"},
+        {"id":"p1.tangent","title":"Draw the local linear model","text":"The tangent passes through (1, a) and has slope 2a. Its equation is L(x) = a + 2a(x − 1). Close to the marked point, it provides a linear approximation to the curve.","formula":"L(x) = a + 2a(x − 1)"}
+      ],
+      "steps":[
+        {"id":"p1.s1","targetId":"p1.function","text":"Start at the marked point. With a equal to {a}, x is one and the curve has height {y}. Change the parameter and notice how that height changes."},
+        {"id":"p1.s2","targetId":"p1.derivative","text":"At x equals one, the derivative is two times a, so the local slope is {slope}. This number describes the slope at the point. It is not the curve's exact rise from one to two."},
+        {"id":"p1.s3","targetId":"p1.tangent","text":"The tangent keeps that local slope. It starts at height {y} when x is one. At x equals two it reaches {tangentEndY}. We will compare that prediction with the curve on the next page."}
+      ],
+      "quickQuestions":["Draw the tangent and explain its slope at x = 1.","Why is the derivative 2a? Show the short derivation.","Set a to 3 and explain what changed."],
+      "quiz":{"id":"p1.quiz","question":"For f(x) = x², what does f′(1) = 2 describe?","options":[{"id":"a","text":"The local slope at x = 1."},{"id":"b","text":"The exact rise of the curve from x = 1 to x = 2."},{"id":"c","text":"A constant slope everywhere on the curve."}],"answerId":"a","explanation":"The derivative gives a local rate. The exact curve rise from 1 to 2 is 4 − 1 = 3, and the curve's slope changes with x."}
+    },
+    {
+      "id":"p2", "eyebrow":"02 / COMPARE THE SAME INTERVAL", "title":"A finite step tells a different story.",
+      "summary":"Keep the interval fixed. Compare what the curve does with what its tangent predicts.",
+      "blocks":[
+        {"id":"p2.curve","title":"Calculate the curve's exact rise","text":"From x = 1 to x = 2, the curve moves from a to 4a. Its exact change is 3a. This is a finite unit interval, not an infinitesimal step.","formula":"f(2) − f(1) = 4a − a = 3a"},
+        {"id":"p2.tangent","title":"Calculate the tangent's rise","text":"Over the same interval, the tangent moves from a to 3a, a change of 2a. That is an exact change for the tangent line and only a prediction for the curve.","formula":"L(2) − L(1) = 2a"},
+        {"id":"p2.secant","title":"Use a secant for average slope","text":"The secant joins the curve at x = 1 and x = 2. Its slope is the exact curve rise divided by the horizontal step: 3a / 1 = 3a. For positive a, the curve gets steeper across this interval.","formula":"secant slope = [f(2) − f(1)] / (2 − 1) = 3a"}
+      ],
+      "steps":[
+        {"id":"p2.s1","targetId":"p2.curve","text":"The curve starts at {y} and ends at {endY}. Subtract the two heights: the exact curve change is {curveChange}."},
+        {"id":"p2.s2","targetId":"p2.tangent","text":"The tangent uses the starting slope {slope}. Over one unit, it rises by {tangentChange}, reaching {tangentEndY}. The curve instead reaches {endY}. These are different objects."},
+        {"id":"p2.s3","targetId":"p2.secant","text":"The orange secant joins the two curve points. Its slope is {secantSlope}. It summarizes the whole interval, while the blue tangent describes the starting point."}
+      ],
+      "quickQuestions":["Show the tangent and secant. Why are their slopes different?","Add a comparison of the exact curve change and tangent change.","If a is 5, is the curve change 10 or 15? Explain carefully."],
+      "quiz":{"id":"p2.quiz","question":"For a = 1, which changes are exact on x = 1 to x = 2?","options":[{"id":"a","text":"The curve rises 2 and the tangent rises 3."},{"id":"b","text":"The curve rises 3 and the tangent rises 2."},{"id":"c","text":"Both rise 2 because the derivative is 2."}],"answerId":"b","explanation":"f(2) − f(1) = 4 − 1 = 3. The tangent L(x) = 2x − 1 rises from 1 to 3, so its change is 2."}
+    },
+    {
+      "id":"p3", "eyebrow":"03 / KNOW THE LIMIT OF THE MODEL", "title":"Local does not mean linear everywhere.",
+      "summary":"A useful approximation has a scope. Explain the difference before trusting the prediction.",
+      "blocks":[
+        {"id":"p3.claim","title":"Spot the misconception","text":"A derivative of 2 at one point does not make a whole curve linear. For f(x) = x² the derivative is 2x, so its value changes as x changes."},
+        {"id":"p3.error","title":"Account for the missing term","text":"At x = 1 + h, the curve is a + 2ah + ah². The tangent gives a + 2ah. Their difference is ah². For our unit step h = 1, the gap is a.","formula":"f(1 + h) − L(1 + h) = a h²"},
+        {"id":"p3.check","title":"Use the model with a check","text":"Name the interval and the object: curve or tangent. State whether a number is a local slope, an average slope, or an exact change. Smaller steps make the absolute gap ah² smaller, but do not make it identically zero when a and h are nonzero."}
+      ],
+      "steps":[
+        {"id":"p3.s1","targetId":"p3.claim","text":"The local slope is {slope}, but the slope of the curve varies with x. One derivative value does not turn a curved function into a straight line."},
+        {"id":"p3.s2","targetId":"p3.error","text":"Our unit step leaves a gap of {error} between the curve and its tangent. The curve changes by {curveChange}; the tangent changes by {tangentChange}. The difference is the quadratic term."},
+        {"id":"p3.s3","targetId":"p3.check","text":"Before using a slope, ask three questions. Which object am I describing? Which interval am I using? Is this a local rate or an exact finite change? Try explaining the distinction in your own words."}
+      ],
+      "quickQuestions":["Show two comparison cards and explain why a local slope does not make the curve linear.","Derive the error ah² step by step and add a note.","Quiz me on local slope versus exact change without giving the answer first."],
+      "quiz":{"id":"p3.quiz","question":"Why does the tangent underestimate this curve at x = 2?","options":[{"id":"a","text":"The derivative formula is incorrect."},{"id":"b","text":"A slope can never describe a curve."},{"id":"c","text":"The tangent omits the positive quadratic term a h²."}],"answerId":"c","explanation":"The tangent retains the constant and linear terms. For positive a and h = 1, the omitted quadratic term is a, exactly the gap in the two endpoint values."}
+    }
+  ]
+}
