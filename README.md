@@ -1,5 +1,9 @@
 # Lesson Lab
 
+[![Watch the Lesson Lab showcase on YouTube](docs/assets/showcase-thumbnail.png)](https://youtu.be/5w6XOYipABk)
+
+**[Watch the 3:55 showcase on YouTube](https://youtu.be/5w6XOYipABk)** — my study workflow, live page edits, and the recorded API comparison.
+
 **Ask a question. Change the page you're studying.**
 
 I'm Ziao Liu. I usually turn my course materials into HTML study guides and talk through them with ChatGPT Voice Chat. Lesson Lab is my experiment with a more responsive shared whiteboard: Cerebras generates an updated page when I need a different example, diagram, or explanation.
