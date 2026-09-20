@@ -90,4 +90,4 @@ Questions and page source leave your computer when you request an edit. Local st
 - [Full comparison viewer](docs/results.html), [data](docs/results.json), and [source records / verification](docs/results/README.md)
 - [Prompts and demo walkthrough](docs/DEMO.md)
 
-Built by Ziao Liu with AI assistance. This is a source-available preview; the original `UNLICENSED` status is retained while a distribution license is being selected. It is not yet an open-source release. See [copyright notice](LICENSE).
+Built by Ziao Liu with AI assistance. Released under the [MIT License](LICENSE). See [third-party notices](THIRD_PARTY.md).

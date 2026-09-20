@@ -15,5 +15,5 @@
     "voice:check": "node scripts/setup-local-voice.js --check",
     "test": "node --test test/*.test.js"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }
