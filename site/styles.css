@@ -49,13 +49,14 @@ h1 em { font-weight: inherit; color: var(--orange-deep); }
 .films { padding-top: 2rem; padding-bottom: 3.5rem; }
 .film-grid { display: grid; gap: 2rem; }
 .film-player { position: relative; aspect-ratio: 16 / 9; background: var(--night); container-type: inline-size; }
+.feature-film .film-player { aspect-ratio: 4 / 3; }
 .film-poster { position: absolute; inset: 0; padding: clamp(1rem, 4cqi, 2rem); display: flex; flex-direction: column; justify-content: space-between; }
 .short-poster { background: var(--orange); color: var(--ink); }
 .poster-top, .poster-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: clamp(.65rem, 2cqi, .875rem); line-height: 1.25; }
 .poster-top { font-weight: 600; }
 .poster-title { font: 400 clamp(1.4rem, 9.5cqi, 4.5rem)/.96 var(--serif); letter-spacing: -.045em; }
 .poster-arrow { font: 3rem/.75 var(--sans); }
-.story-poster { background: var(--night); color: var(--paper); }
+.story-poster { background: var(--night); color: var(--paper); padding-bottom: 4.5rem; }
 .story-poster .poster-title { font-size: clamp(1.65rem, 9cqi, 3rem); margin: auto 0; }
 .load-video { position: absolute; right: 1rem; bottom: 1rem; min-height: 44px; display: flex; align-items: center; gap: .65rem; border: 1px solid var(--ink); border-radius: 0; padding: .6rem .8rem; background: var(--paper); color: var(--ink); cursor: pointer; font-size: .75rem; font-weight: 600; transition: transform 160ms var(--ease), background 160ms var(--ease); }
 .feature-film .load-video { bottom: clamp(1rem, 4cqi, 2rem); right: clamp(1rem, 4cqi, 2rem); }
@@ -108,7 +109,8 @@ pre code { font-size: inherit; overflow-wrap: normal; }
   nav { gap: 2rem; font-size: .875rem; }
   .hero { padding-top: 4rem; padding-bottom: 4rem; }
   .hero-bottom { grid-template-columns: 1fr auto; align-items: end; gap: 3rem; }
-  .film-grid { grid-template-columns: 1.7fr 1fr; gap: 2rem; }
+  .film-grid { gap: 2rem; }
+  .feature-film .film-player { aspect-ratio: 16 / 9; }
   .story-description { font-size: 1rem; margin-top: 1rem; }
   .project-note { grid-template-columns: .85fr 1.5fr; gap: 3rem; padding-block: 4rem; }
   .build-notes > div { grid-template-columns: 1fr 1.3fr; gap: 3rem; }
