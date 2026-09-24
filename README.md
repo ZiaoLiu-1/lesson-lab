@@ -1,8 +1,12 @@
 # Lesson Lab
 
+**[Visit the project page](https://ziaoliu.io/pages/lesson-lab/)** · **[Watch the latest short showcase](https://youtu.be/RpbIJLIoFbI)**
+
+What if working with AI felt like interaction, not delegation? The latest short film explores that question through a real study-page edit using Cerebras inference. The project page contains videos and source links; it does not host an inference service.
+
 [![Watch the Lesson Lab showcase on YouTube](docs/assets/showcase-thumbnail.png)](https://youtu.be/5w6XOYipABk)
 
-**[Watch the 3:55 showcase on YouTube](https://youtu.be/5w6XOYipABk)** — my study workflow, live page edits, and the recorded API comparison.
+**[Watch the full 3:55 walkthrough on YouTube](https://youtu.be/5w6XOYipABk)** — my study workflow, live page edits, and the recorded API comparison.
 
 **Ask a question. Change the page you're studying.**
 
@@ -86,6 +90,9 @@ Questions and page source leave your computer when you request an edit. Local st
 
 ## Showcase resources
 
+- [Public project page](https://ziaoliu.io/pages/lesson-lab/) and its [static source](site/)
+- [Latest short film](https://youtu.be/RpbIJLIoFbI) and [full narrated walkthrough](https://youtu.be/5w6XOYipABk)
+- [Showcase hosting and privacy](docs/SHOWCASE.md)
 - [English voiceover draft](docs/VOICEOVER_EN.txt)
 - [Full comparison viewer](docs/results.html), [data](docs/results.json), and [source records / verification](docs/results/README.md)
 - [Prompts and demo walkthrough](docs/DEMO.md)

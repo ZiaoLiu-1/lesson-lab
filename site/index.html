@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Lesson Lab is Ziao Liu’s experiment with responsive, editable study pages, built with the Cerebras API. Watch the films, inspect the code, or run it locally.">
+  <meta name="theme-color" content="#f5f0e6">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lesson Lab — Ziao Liu">
+  <meta property="og:description" content="What if working with AI felt like interaction, not delegation? A personal experiment in editable study pages.">
+  <meta property="og:url" content="https://ziaoliu.io/pages/lesson-lab/">
+  <link rel="canonical" href="https://ziaoliu.io/pages/lesson-lab/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+  <title>Lesson Lab — Ziao Liu</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="wordmark" href="#main" aria-label="Lesson Lab, top of page"><span class="lab-mark" aria-hidden="true">L<span>↗</span></span>Lesson Lab</a>
+      <nav aria-label="Main navigation">
+        <a href="#films">Watch</a>
+        <a href="#local">Run locally</a>
+        <a href="https://github.com/ZiaoLiu-1/lesson-lab">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">A personal experiment <span aria-hidden="true">/</span> Ziao Liu</p>
+        <h1 id="hero-title">What if working with AI felt like <em>interaction,</em> not delegation?</h1>
+        <div class="hero-bottom">
+          <p class="hero-intro">I wanted to ask a question and see the page I was studying change with me. Lesson Lab is my experiment with that idea.</p>
+          <a class="text-link hero-link" href="#films">See it in motion <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section id="films" class="films section-rule" aria-labelledby="films-title">
+        <div class="section-heading"><h2 id="films-title">A page to think with.</h2><p>Two ways into the project.</p></div>
+        <div class="film-grid">
+          <figure class="film feature-film">
+            <div class="film-player" data-player="short">
+              <div class="film-poster short-poster">
+                <div class="poster-top"><span>Lesson Lab</span><span>Short film · ~42 sec</span></div>
+                <p class="poster-title">Ask.<br>Change.<br>Keep going.</p>
+                <div class="poster-bottom"><span>A study page, in conversation.</span><span class="poster-arrow" aria-hidden="true">↗</span></div>
+              </div>
+              <button class="load-video" type="button" data-video="short" data-video-id="RpbIJLIoFbI" aria-label="Load the 42-second Lesson Lab short film from YouTube" hidden><span class="play-icon" aria-hidden="true">▶</span><span>Load short film</span></button>
+            </div>
+            <figcaption><span class="film-label">01 <span>The short version</span></span><a href="https://youtu.be/RpbIJLIoFbI">Watch on YouTube <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+          <div class="story-column">
+            <figure class="film story-film">
+              <div class="film-player" data-player="story">
+                <div class="film-poster story-poster">
+                  <div class="poster-top"><span>Lesson Lab</span><span>3:55</span></div>
+                  <p class="poster-title">The full<br>story.</p>
+                </div>
+                <button class="load-video" type="button" data-video="story" data-video-id="5w6XOYipABk" aria-label="Load the 3-minute 55-second Lesson Lab showcase from YouTube" hidden><span class="play-icon" aria-hidden="true">▶</span><span>Load full showcase</span></button>
+              </div>
+              <figcaption><span class="film-label">02 <span>The full story</span></span><a href="https://youtu.be/5w6XOYipABk">YouTube <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+            <p class="story-description">My study workflow, live page edits, and a separate recorded API comparison—with the limits left in.</p>
+            <p class="privacy-note">Videos connect to YouTube only when you choose to load them. They do not autoplay. If an embed is unavailable, use its YouTube link.</p>
+          </div>
+        </div>
+        <noscript><p class="privacy-note">JavaScript is off. Both films are available through the YouTube links above.</p></noscript>
+        <p id="video-status" class="visually-hidden" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="project-note section-rule" aria-labelledby="idea-title">
+        <div class="section-label"><span class="eyebrow">The starting point</span><h2 id="idea-title">From a study habit<br>to a small experiment.</h2></div>
+        <div class="note-copy">
+          <p class="lead">I usually turn course material into HTML study guides and talk through them with ChatGPT Voice Chat. I wanted the page itself to take part in that conversation.</p>
+          <p>In Lesson Lab, a question and the current page go to the Cerebras API. It returns updated HTML, CSS, and SVG: a different example, a revised diagram, or another way to explain the idea. I can inspect the source, undo an edit, or save the page.</p>
+          <p>This is a local prototype, not an integration with ChatGPT Voice Chat. The site you are reading is its static showcase; it does not run inference.</p>
+        </div>
+      </section>
+
+      <section class="build-section section-rule" aria-labelledby="build-title">
+        <div class="section-heading"><h2 id="build-title">Under the page.</h2><p>Node.js · Vanilla JavaScript · HTML / CSS / SVG</p></div>
+        <dl class="build-notes">
+          <div><dt><span aria-hidden="true">01</span>A complete page, not a chat bubble</dt><dd>A local Node.js server connects the browser to the API. Canvas sends the current static document and selection context, then displays the checked result in a scripts-blocked preview.</dd></div>
+          <div><dt><span aria-hidden="true">02</span>Late replies stay in the past</dt><dd>Reader anchors, document revisions, and cancellation checks prevent stale responses from replacing the current page. Speech requires acknowledgement of the exact displayed version.</dd></div>
+          <div><dt><span aria-hidden="true">03</span>Keep the last good version</dt><dd>Local file-backed state, bounded undo history, and save checks preserve accepted content when an edit fails. Generated application code is not executed.</dd></div>
+        </dl>
+        <p class="boundary-note"><span>Still an experiment.</span> Valid markup is not proof of correct teaching. Explanations and diagrams need review; optional voice features need real-device checks. This is a single-reader local demo, not a multi-user service.</p>
+      </section>
+
+      <section id="local" class="local-section" aria-labelledby="local-title">
+        <div class="local-intro"><p class="eyebrow">Open the source</p><h2 id="local-title">Try it on<br>your own machine.</h2><p>Node.js 24+, a modern desktop browser, and your own Cerebras API key. No build step or npm dependencies for the text app.</p><a class="button-link" href="https://github.com/ZiaoLiu-1/lesson-lab">View the repository <span aria-hidden="true">↗</span></a></div>
+        <div class="local-instructions">
+          <p class="code-caption">Start here</p>
+          <pre aria-label="Commands to clone and set up Lesson Lab"><code>git clone https://github.com/ZiaoLiu-1/lesson-lab.git
+cd lesson-lab
+cp .env.example .env</code></pre>
+          <p>Add your key to the local <code>.env</code> file, then run <code>npm start</code>. Open <code>http://127.0.0.1:4320/</code>.</p>
+          <p class="local-caution">The prepared sample can be browsed without a key. Live edits send your question and page source to the provider and may incur charges. Keep keys on the local server, never in the webpage.</p>
+          <div class="local-links"><a href="https://github.com/ZiaoLiu-1/lesson-lab/blob/main/docs/DEMO.md">Demo walkthrough <span aria-hidden="true">↗</span></a><a href="https://github.com/ZiaoLiu-1/lesson-lab/blob/main/docs/BENCHMARK.md">Comparison method <span aria-hidden="true">↗</span></a><a href="https://github.com/ZiaoLiu-1/lesson-lab/blob/main/docs/results.html">Results viewer source <span aria-hidden="true">↗</span></a></div>
+          <p class="source-note">The results viewer is included in the repository for local viewing. The comparisons involve different models and providers; they do not isolate hardware performance.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="footer-name" href="https://ziaoliu.io/">Ziao Liu <span aria-hidden="true">↗</span></a><p>An independent, AI-assisted project. <a href="https://github.com/ZiaoLiu-1/lesson-lab/blob/main/LICENSE">MIT licensed.</a><br>Uses the Cerebras API; not an official Cerebras product.</p><a href="#main" class="back-top">Back to top <span aria-hidden="true">↑</span></a></footer>
+  </div>
+</body>
+</html>
